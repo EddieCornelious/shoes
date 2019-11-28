@@ -35,7 +35,9 @@
     ul li {
       display: inline-block;
       margin: 0 2.5rem;
-
+      a:hover .nav__hover__content {
+        display: block;
+      }
       a {
         &:after {
           display: block;
@@ -58,10 +60,11 @@
 }
 
 .hero {
-  height: 95vh;
+  min-height: 95vh;
   background-image: url("../images/hero.jpg");
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
   .hero__content {
     position: absolute;
@@ -95,4 +98,31 @@
       font-size: 1.6rem;
     }
   }
+}
+
+.hide {
+  display: none;
+  opacity: 0;
+}
+
+.show {
+  display: flex;
+  opacity: 1;
+}
+
+.nav__hover__content {
+  position: absolute;
+  background: white;
+  min-height: 25vh;
+  min-width: 100%;
+  z-index: 9999;
+  align-content: space-around;
+  justify-content: space-around;
+  font-size: 2rem;
+  display: flex;
+}
+
+.nav__hover__content__wrap {
+  display: inline-block;
+  padding: 2rem 5rem 0 5rem;
 }

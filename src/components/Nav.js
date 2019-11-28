@@ -3,7 +3,7 @@ import React from "react";
 import { ReactComponent as Logo } from "../images/logo.svg";
 import Slider from "./Slider.js";
 
-const NavTop = () => {
+const NavTop = props => {
   return (
     <div className="navbar__top">
       <div className="navbar__top__icon">
@@ -12,13 +12,27 @@ const NavTop = () => {
       <div className="navbar__top__options">
         <ul>
           <li>
-            <a href="#">Mens</a>
+            <a
+              onMouseEnter={() => props.onHoverChange(1)}
+              className="mens__nav"
+              href="#"
+            >
+              Mens
+            </a>
           </li>
           <li>
-            <a href="#">Womens</a>
+            <a
+              onMouseEnter={() => props.onHoverChange(2)}
+              className="womens__nav"
+              href="#"
+            >
+              Womens
+            </a>
           </li>
           <li>
-            <a href="#">Accessories</a>
+            <a onMouseEnter={() => props.onHoverChange(0)} href="#">
+              Accessories
+            </a>
           </li>
         </ul>
       </div>
@@ -52,14 +66,102 @@ const Hero = () => {
     </div>
   );
 };
-const Nav = () => {
+
+const NavHover = props => {
+  if (props.hoverState === 0) {
+    return <div className="hide nav__hover__content" />;
+  }
+  if (props.hoverState === 1) {
+    return (
+      <div
+        onMouseLeave={() => props.onHoverChange(0)}
+        className="show nav__hover__content"
+      >
+        <MensContent />
+      </div>
+    );
+  }
+
   return (
-    <React.Fragment>
-      <NavTop />
-      <NavBottom />
-      <Hero />
-    </React.Fragment>
+    <div
+      onMouseLeave={() => props.onHoverChange(0)}
+      className="show nav__hover__content"
+    >
+      <WomensContent />
+    </div>
   );
 };
+
+const MensContent = () => {
+  return (
+    <div>
+      <ul className="nav__hover__content__wrap">
+        <li>
+          <a>Sneakers</a>
+        </li>
+        <li>
+          <a>Casual</a>
+        </li>
+        <li>
+          <a>Sandals</a>
+        </li>
+      </ul>
+
+      <ul className="nav__hover__content__wrap">
+        <li>
+          <a>Sneakers</a>
+        </li>
+        <li>
+          <a>Casual</a>
+        </li>
+        <li>
+          <a>Sandals</a>
+        </li>
+      </ul>
+    </div>
+  );
+};
+
+const WomensContent = () => {
+  return (
+    <ul className="nav__hover__content__wrap">
+      <li>
+        <a>Sneakers</a>
+      </li>
+      <li>
+        <a>Heels</a>
+      </li>
+      <li>
+        <a>Flats</a>
+      </li>
+    </ul>
+  );
+};
+
+class Nav extends React.Component {
+  state = {
+    hoverState: 0
+  };
+  changeHoverState(newState) {
+    this.setState({
+      hoverState: newState
+    });
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <NavTop onHoverChange={this.changeHoverState.bind(this)} />
+        <NavBottom />
+        <NavHover
+          onHoverChange={this.changeHoverState.bind(this)}
+          hoverState={this.state.hoverState}
+        />
+
+        <Hero />
+      </React.Fragment>
+    );
+  }
+}
 
 export default Nav;
