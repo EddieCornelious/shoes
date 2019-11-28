@@ -7,9 +7,25 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+html,
+body {
+  height: 100%;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
+  overflow-x: hidden;
+}
+
+a,
+a:hover,
+a:active,
+a:hover,
+a:visited {
+  color: inherit;
+  text-decoration: none; /* no underline */
 }
