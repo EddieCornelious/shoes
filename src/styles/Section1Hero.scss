@@ -4,11 +4,18 @@
 .section__hero__img__container {
   width: 100%;
   position: relative;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
   .section__hero--1 {
     max-width: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit: fill;
     transition: all 0.3s ease-in-out;
+  }
+
+  .section__hero__img__container {
+    max-height: 100vh;
+    -webkit-backface-visibility: hidden;
   }
 
   &:hover h2:after:hover {
@@ -33,7 +40,8 @@
   }
 
   &:hover img {
-    transform: scale(1.02);
+    -webkit-transform: translateZ(0) scale(1.02, 1.02);
+    -webkit-backface-visibility: hidden;
   }
   &:hover .hero__overlay {
     opacity: 1;
