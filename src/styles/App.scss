@@ -13,6 +13,10 @@ body {
   height: 100%;
 }
 
+.no__padding {
+  padding: 0 !important;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -37,4 +41,8 @@ a:visited {
 
 .no__margin {
   margin: 0 !important;
+}
+
+.full__width {
+  width: 100% !important;
 }
