@@ -8,6 +8,8 @@ import Section2Hero from "./Section2Hero.js";
 import Section3Hero from "./Section3Hero.js";
 import TrendingSection from "./TrendingSection.js";
 import PopularSection from "./PopularSection.js";
+import NewsLetter from "./NewsLetter.js";
+import Social from "./Social.js";
 
 class App extends React.Component {
   render() {
@@ -19,6 +21,8 @@ class App extends React.Component {
         <Section2Hero />
         <Section3Hero />
         <PopularSection />
+        <NewsLetter />
+        <Social />
       </div>
     );
   }

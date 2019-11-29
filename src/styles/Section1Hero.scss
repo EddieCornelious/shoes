@@ -9,7 +9,7 @@
   .section__hero--1 {
     max-width: 100%;
     width: 100%;
-    object-fit: fill;
+    object-fit: contain;
     transition: all 0.3s ease-in-out;
   }
 

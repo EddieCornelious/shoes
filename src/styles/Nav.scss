@@ -111,15 +111,17 @@
 }
 
 .nav__hover__content {
-  position: absolute;
+  position: fixed;
   background: white;
   min-height: 25vh;
   min-width: 100%;
-  z-index: 9999;
+  z-index: 9998;
   align-content: space-around;
   justify-content: space-around;
   font-size: 2rem;
   display: flex;
+  padding: 10rem 0;
+  border: 1px solid #eee;
 }
 
 .nav__hover__content__wrap {

@@ -94,7 +94,7 @@ const NavHover = props => {
 
 const MensContent = () => {
   return (
-    <div>
+    <React.Fragment>
       <ul className="nav__hover__content__wrap">
         <li>
           <a>Sneakers</a>
@@ -118,7 +118,7 @@ const MensContent = () => {
           <a>Sandals</a>
         </li>
       </ul>
-    </div>
+    </React.Fragment>
   );
 };
 
@@ -152,7 +152,7 @@ class Nav extends React.Component {
     return (
       <React.Fragment>
         <NavTop onHoverChange={this.changeHoverState.bind(this)} />
-        <NavBottom />
+
         <NavHover
           onHoverChange={this.changeHoverState.bind(this)}
           hoverState={this.state.hoverState}
