@@ -1,8 +1,8 @@
 .jumbotron--lg {
   padding-top: 15rem;
   padding-bottom: 15rem;
-  background: white;
   border-top: 1px solid #eee;
+  background: rgb(245, 245, 245);
 }
 
 .jumbotron {
@@ -12,6 +12,14 @@
     text-align: center;
     margin-bottom: 4rem;
     text-transform: uppercase;
+  }
+
+  button {
+    background: black;
+    color: white;
+
+    &:hover {
+    }
   }
 
   input {

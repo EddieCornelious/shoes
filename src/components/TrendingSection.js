@@ -1,9 +1,8 @@
 import "../styles/TrendingSection.scss";
 import React from "react";
-import img1 from "../images/trending.jpg";
+import img1 from "../images/popular.jpg";
 
 const Size = props => {
-  console.log(Number(props.id) === Number(props.size));
   return (
     <span
       className={Number(props.id) === Number(props.size) ? "active__size" : ""}
@@ -38,9 +37,9 @@ class TrendingSection extends React.Component {
             <div className="col-md-6">
               <div className="trending__content">
                 <h3 className="trending__content__title">
-                  Air Jordan Retro 10 Dark Shadown
+                  Nike Renew Run Women's Running Shoe
                 </h3>
-                <h4>$249.99</h4>
+                <h4>$159.99</h4>
                 <p onClick={this.setSize.bind(this)}>
                   SIZE:
                   <Size size={this.state.size} id="7" />

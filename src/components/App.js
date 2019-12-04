@@ -10,6 +10,7 @@ import TrendingSection from "./TrendingSection.js";
 import PopularSection from "./PopularSection.js";
 import NewsLetter from "./NewsLetter.js";
 import Social from "./Social.js";
+import Footer from "./Footer.js";
 
 class App extends React.Component {
   render() {
@@ -23,6 +24,7 @@ class App extends React.Component {
         <PopularSection />
         <NewsLetter />
         <Social />
+        <Footer />
       </div>
     );
   }

@@ -71,7 +71,7 @@
     top: 50%;
     transform: translateY(-50%);
     color: white;
-
+    left: 10%;
     padding: 3rem;
 
     h1 {
@@ -92,10 +92,12 @@
     a {
       display: inline-block;
       background: white;
-      padding: 1rem 2rem;
+      padding: 1.5rem 2.5rem;
       color: black;
-      border-radius: 2rem;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-top: 1rem;
     }
   }
 }
