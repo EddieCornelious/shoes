@@ -6,10 +6,12 @@
   position: relative;
   -webkit-backface-visibility: hidden;
   overflow: hidden;
+  max-height: 100vh;
   .section__hero--1 {
     max-width: 100%;
     width: 100%;
-    object-fit: contain;
+    object-fit: scale-down;
+    object-position: top;
     transition: all 0.3s ease-in-out;
   }
 
