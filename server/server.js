@@ -12,6 +12,7 @@ var connection = mysql.createConnection({
 });
 */
 app.use(express.static(path.join(__dirname, "../build")));
+app.use("/images", express.static(path.join(__dirname, "../src/images")));
 
 app.get("/ping", function(req, res) {
   res.json({
