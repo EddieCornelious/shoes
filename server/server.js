@@ -2,17 +2,17 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const app = express();
-/*
-var mysql = require("mysql");
-var connection = mysql.createConnection({
+
+const mysql = require("mysql");
+const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "1234",
   database: "shoe_store"
 });
-*/
+
 app.use(express.static(path.join(__dirname, "../build")));
-app.use("/images", express.static(path.join(__dirname, "../src/images")));
+app.use("/images", express.static(path.join(__dirname, "./images")));
 
 app.get("/ping", function(req, res) {
   res.json({

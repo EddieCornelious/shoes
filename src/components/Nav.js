@@ -1,6 +1,6 @@
 import "../styles/Nav.scss";
 import React from "react";
-import { ReactComponent as Logo } from "../images/logo.svg";
+import { ReactComponent as Logo } from "./bike.svg";
 import Slider from "./Slider.js";
 
 const NavTop = props => {
