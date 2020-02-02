@@ -2,6 +2,8 @@ import "../styles/Nav.scss";
 import React from "react";
 import { ReactComponent as Logo } from "./bike.svg";
 import Slider from "./Slider.js";
+import Login from "./Login.js";
+import SignUp from "./SignUp.js";
 
 const NavTop = props => {
   return (
@@ -40,6 +42,8 @@ const NavTop = props => {
         <i className="fas fa-search" />
         <i className="far fa-user" />
         <i className="fas fa-shopping-cart" />
+        <Login />
+        <SignUp />
       </div>
     </div>
   );
