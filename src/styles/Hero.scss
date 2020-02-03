@@ -1,17 +1,13 @@
-.hero {
-  min-height: 100vh;
-  background-image: url("/images/alfa-lifestyle-lady_2048x2048.jpeg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+
   .hero__content {
     position: absolute;
     top: 50%;
+    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     color: white;
     left: 10%;
     padding: 3rem;
+    text-align: initial;
 
     h1 {
       font-size: 6rem;
@@ -39,4 +35,3 @@
       margin-top: 1rem;
     }
   }
-}
