@@ -1,4 +1,4 @@
-import "../styles/NewsLetter.scss";
+import "../../styles/NewsLetter.scss";
 import React from "react";
 
 const NewsLetter = () => {
