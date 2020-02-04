@@ -1,0 +1,27 @@
+.section1 {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  width: 100%;
+  .section1__left, .section1__right {
+    width: 50%;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.left__content{
+  position: absolute;
+  font-size: 3rem;
+}
+
+.right__content{
+  position: absolute;
+  font-size: 3rem;
+}
