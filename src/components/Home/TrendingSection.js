@@ -4,7 +4,11 @@ import "../../styles/TrendingSection.scss";
 const TrendingItem = ({ classId }) => {
   return (
     <div className="col-md-3 p-0">
-      <div className={"trending__item " + { classId }}>HI</div>
+      <div className="trending__item">
+        <div className="trending__item__top">*nbsp;</div>
+
+        <div className="trending__item__bottom">&nbsp;</div>
+      </div>
     </div>
   );
 };
@@ -24,8 +28,14 @@ class TrendingSection extends React.Component {
   render() {
     return (
       <div className="trending__section container-fluid px-5 pt-5">
-        <div className="row">{this.renderRow()}</div>
-        <div className="row">{this.renderRow()}</div>
+        <h2 className="trending__header">trending items</h2>
+        <div className="container-fluid">
+          <div className="row">{this.renderRow()}</div>
+        </div>
+        <div className="container-fluid">
+          <div className="row">{this.renderRow()}</div>
+        </div>
+        <div className="spacer mb-5" />
       </div>
     );
   }
