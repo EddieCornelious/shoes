@@ -15,6 +15,7 @@ class App extends React.Component {
         <HomeCarousel />
         <Section1 />
         <TrendingSection />
+        <Section1 />
         <NewsLetter />
         <Footer />
       </div>

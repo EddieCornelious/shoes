@@ -3,7 +3,7 @@ import React from "react";
 
 const NewsLetter = () => {
   return (
-    <div className="jumbotron jumbotron--lg no__margin">
+    <div className="jumbotron jumbotron--lg mb-0 mt-5">
       <div className="container">
         <div className="row">
           <h1 className="display-4 center">sign up to our news letter</h1>

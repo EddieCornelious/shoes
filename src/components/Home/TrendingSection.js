@@ -3,7 +3,7 @@ import "../../styles/TrendingSection.scss";
 
 const TrendingItem = ({ classId }) => {
   return (
-    <div className="col-md-3 p-0">
+    <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3 p-0">
       <div className="trending__item">
         <div className="trending__item__top">*nbsp;</div>
 
