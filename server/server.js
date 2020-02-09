@@ -3,30 +3,21 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const app = express();
 
-const mysql = require("mysql");
-const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "1234",
-  database: "shoe_store"
-});
-
 app.use(express.static(path.join(__dirname, "../build")));
 app.use("/images", express.static(path.join(__dirname, "./images")));
 
-app.get("/ping", function(req, res) {
-  res.json({
-    name: "poppopopo"
-  });
-  /*
-  connection.connect();
-  connection.query("SELECT * FROM Users", function(error, results, fields) {
-    if (error) throw error;
-    connection.end();
-    res.json({ results });
-  });
+const Query = require("./helpers/Query.js");
 
-  connection.end();*/
+app.get("/ping", function(req, res) {
+  Query.exec("SELECT * FROM colors")
+    .then(results => {
+      console.log(results);
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
+
+  res.end();
 });
 
 app.get("/", function(req, res) {
