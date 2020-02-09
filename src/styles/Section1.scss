@@ -5,7 +5,8 @@
   -webkit-box-direction: normal;
   flex-direction: row;
   width: 100%;
-  .section1__left, .section1__right {
+  .section1__left,
+  .section1__right {
     width: 50%;
     position: relative;
 
@@ -16,12 +17,13 @@
   }
 }
 
-.left__content{
+.left__content {
   position: absolute;
   font-size: 3rem;
+  z-index: 29;
 }
 
-.right__content{
+.right__content {
   position: absolute;
   font-size: 3rem;
 }

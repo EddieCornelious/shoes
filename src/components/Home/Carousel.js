@@ -18,15 +18,18 @@ class HomeCarousel extends Component {
           interval={5000}
         >
           <div>
-            <img src="/images/alfa-lifestyle-lady_2048x2048.jpeg" />
+            <img src="/images/home_hero1.jpg" />
             <Hero />
           </div>
           <div>
-            <img src="/images/alfa-lifestyle-lady_2048x2048.jpeg" />
+            <img src="/images/home_hero2.jpg" />
+          </div>
+          <div>
+            <img src="/images/home_hero3.jpg" />
             <Hero />
           </div>
           <div>
-            <img src="/images/alfa-lifestyle-lady_2048x2048.jpeg" />
+            <img src="/images/home_hero4.jpg" />
             <Hero />
           </div>
         </Carousel>
