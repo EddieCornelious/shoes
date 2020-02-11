@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
-const Query = require("./helpers/Query.js");
+//const Query = require("./helpers/Query.js");
 const app = express();
 
 app.use(express.static(path.join(__dirname, "../build")));
@@ -14,13 +14,14 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 app.get("/api/ping", function(req, res) {
-  Query.exec("SELECT * FROM colors")
+  res.status(200).json({ name: "lol" });
+  /*Query.exec("SELECT * FROM colors")
     .then(results => {
       res.status(200).json(results);
     })
     .catch(function(err) {
       res.status(500).json({ err: "INTERNAL ERROR" });
-    });
+    });*/
 });
 
 app.get("/", function(req, res) {
