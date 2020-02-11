@@ -1,23 +1,26 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
+const cors = require("cors");
+const Query = require("./helpers/Query.js");
 const app = express();
 
 app.use(express.static(path.join(__dirname, "../build")));
 app.use("/images", express.static(path.join(__dirname, "./images")));
 
-const Query = require("./helpers/Query.js");
+if (process.env.NODE_ENV !== "production") {
+  console.log("cors enabled for development");
+  app.use(cors());
+}
 
-app.get("/ping", function(req, res) {
+app.get("/api/ping", function(req, res) {
   Query.exec("SELECT * FROM colors")
     .then(results => {
-      console.log(results);
+      res.status(200).json(results);
     })
     .catch(function(err) {
-      console.log(err);
+      res.status(500).json({ err: "INTERNAL ERROR" });
     });
-
-  res.end();
 });
 
 app.get("/", function(req, res) {

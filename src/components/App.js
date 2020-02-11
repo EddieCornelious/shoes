@@ -6,8 +6,22 @@ import Footer from "./Footer.js";
 import HomeCarousel from "./Home/Carousel.js";
 import Section1 from "./Home/Section1.js";
 import TrendingSection from "./Home/TrendingSection.js";
+import axios from "axios";
+import API_ROOT from "./config.js";
 
 class App extends React.Component {
+  componentDidMount() {
+    console.log(API_ROOT + "/ping");
+    axios
+      .get(API_ROOT + "/ping")
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        // handle error
+        console.log(error);
+      });
+  }
   render() {
     return (
       <div>

@@ -20,7 +20,7 @@ const Section1 = ({ LeftContent, src1, src2, RightContent }) => {
             src={src1 || "/images/alfa-lifestyle-lady-sitting_2048x2048.jpeg"}
           />
         </div>
-        <div className="section1__right">
+        <div className="section1__right pl-4">
           {!RightContent ? <RightContentDefault /> : RightContent}
 
           <img src={src2 || "/images/alfa-lifestyle_2048x2048.jpeg"} />
