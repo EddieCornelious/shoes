@@ -19,6 +19,7 @@ const run = (function() {
         if (err) throw err;
 
         process.send({ hashSalt: derivedKey.toString("hex"), salt });
+        process.exit(0);
       }
     );
   });
