@@ -16,8 +16,11 @@ class Query {
   static exec(query, escapeValues) {
     return new Promise(function(resolve, reject) {
       pool.query(query, escapeValues || [], function(err, rows, fields) {
-        if (err) reject(err);
-        resolve(rows, fields);
+        if (err) {
+          console.log(err);
+          return reject(err);
+        }
+        return resolve(rows, fields);
       });
     });
   }

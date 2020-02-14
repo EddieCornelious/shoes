@@ -1,7 +1,7 @@
 const crypto = require("crypto");
 
-const run = (function() {
-  process.on("message", message => {
+function hashSalt(message, done) {
+  return new Promise(function(resolve, reject) {
     let salt;
     if (message.type === 0) {
       salt = message.salt;
@@ -10,19 +10,17 @@ const run = (function() {
     }
 
     crypto.pbkdf2(
-      message.pw,
+      message.password,
       salt.toString("hex"),
       100000,
       64,
       "sha512",
       (err, derivedKey) => {
-        if (err) throw err;
-
-        process.send({ hashSalt: derivedKey.toString("hex"), salt });
-        process.exit(0);
+        if (err) reject(err);
+        resolve({ hashSalt: derivedKey.toString("hex"), salt });
       }
     );
   });
-})();
+}
 
-module.exports = run;
+module.exports = hashSalt;
