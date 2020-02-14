@@ -53,8 +53,8 @@ router.post("/login", loginMiddleware, function(req, res, next) {
   const userName = validator.escape(req.body.userName);
   const password = validator.escape(req.body.password);
 
-  Query.exec("SELECT * FROM users WHERE users.username = ?", [userName]).then(
-    function(results, fields) {
+  Query.exec("SELECT * FROM users WHERE users.username = ?", [userName])
+    .then(function(results, fields) {
       if (!results || !results.length) {
         return res
           .status(401)
@@ -63,8 +63,8 @@ router.post("/login", loginMiddleware, function(req, res, next) {
 
       const storedPw = results[0].pword;
       const storedSalt = results[0].salt;
-      return hashSalt({ userName, password, type: 0, salt: storedSalt })
-        .then(function(hashResult) {
+      return hashSalt({ userName, password, type: 0, salt: storedSalt }).then(
+        function(hashResult) {
           if (hashResult.hashSalt === storedPw) {
             return res.status(200).json({
               token: createToken(
@@ -79,10 +79,10 @@ router.post("/login", loginMiddleware, function(req, res, next) {
               .status(401)
               .json({ msg: "Incorrect user name or password" });
           }
-        })
-        .catch(next);
-    }
-  );
+        }
+      );
+    })
+    .catch(next);
 });
 
 //signup
