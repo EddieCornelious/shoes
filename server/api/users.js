@@ -15,7 +15,10 @@ function createToken(userName, email, id) {
   };
   const token = jwt.sign(user, "secret");
 
-  return token;
+  return {
+    token,
+    user
+  };
 }
 
 router.post("/signup", signupMiddleware, function(req, res, next) {
@@ -40,7 +43,7 @@ router.post("/signup", signupMiddleware, function(req, res, next) {
           [values]
         ).then(function(results, fields) {
           return res.status(201).json({
-            token: createToken(userName, email, results[0].insertId),
+            payload: createToken(userName, email, results[0].insertId),
             msg: "Account created successfully"
           });
         });
@@ -67,7 +70,7 @@ router.post("/login", loginMiddleware, function(req, res, next) {
         function(hashResult) {
           if (hashResult.hashSalt === storedPw) {
             return res.status(200).json({
-              token: createToken(
+              payload: createToken(
                 results[0].username,
                 results[0].email,
                 results[0].user_id

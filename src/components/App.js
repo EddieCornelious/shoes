@@ -11,9 +11,14 @@ import API_ROOT from "./config.js";
 
 class App extends React.Component {
   componentDidMount() {
-    console.log(API_ROOT + "/ping");
-    axios
-      .get(API_ROOT + "/ping")
+    axios({
+      method: "post",
+      url: API_ROOT + "/users/login",
+      data: { userName: "ed", password: "12345678" },
+      headers: {
+        "content-type": "application/json"
+      }
+    })
       .then(function(response) {
         console.log(response);
       })
