@@ -41,6 +41,7 @@ function signupMiddleware(req, res, next) {
 function loginMiddleware(req, res, next) {
   const userName = req.body.userName;
   const password = req.body.password;
+
   if (!userName || !password) {
     return res
       .status(400)
