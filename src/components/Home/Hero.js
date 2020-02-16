@@ -1,14 +1,24 @@
 import "../../styles/Hero.scss";
 import React from "react";
 
-const Hero = () => {
+const Hero = ({
+  headerClass,
+  anchorClass,
+  paraClass,
+  heroClass,
+  spanClass
+}) => {
   return (
-    <div className="hero__content">
-      <h1>
-        <span>We have</span> <span>the shoes</span> <span>you need</span>
+    <div className={"hero__content " + heroClass}>
+      <h1 className={headerClass || ""}>
+        <span className={spanClass}>We have</span>{" "}
+        <span className={spanClass}>the shoes</span>{" "}
+        <span className={spanClass}>you need</span>
       </h1>
-      <p>cleets, sneakers, loafers and more</p>
-      <a href="#">Shop</a>
+      <p className={paraClass || ""}>cleets, sneakers, loafers and more</p>
+      <a className={anchorClass || ""} href="#">
+        Shop
+      </a>
     </div>
   );
 };

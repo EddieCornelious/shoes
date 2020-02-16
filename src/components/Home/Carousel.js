@@ -26,7 +26,13 @@ class HomeCarousel extends Component {
           </div>
           <div>
             <img src="/images/home_hero3.jpg" />
-            <Hero />
+            <Hero
+              anchorClass={"alt"}
+              paraClass={"black"}
+              panClass={"in-line"}
+              heroClass={"right__hero"}
+              alt={true}
+            />
           </div>
           <div>
             <img src="/images/home_hero4.jpg" />

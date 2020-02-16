@@ -2,11 +2,19 @@ import "../../styles/Section1.scss";
 import React from "react";
 
 const LeftContentDefault = () => {
-  return <div className="left__content">SHOP Bikes</div>;
+  return (
+    <div className="left__content">
+      <h3>LOL</h3>
+    </div>
+  );
 };
 
 const RightContentDefault = () => {
-  return <div className="right__content">SHOP Boards</div>;
+  return (
+    <div className="right__content">
+      <h3>LOL</h3>
+    </div>
+  );
 };
 
 const Section1 = ({ LeftContent, src1, src2, RightContent }) => {
