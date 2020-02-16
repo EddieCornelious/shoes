@@ -32,9 +32,15 @@ class App extends React.Component {
       <div>
         <Nav />
         <HomeCarousel />
-        <Section1 src1="/images/home_hero5.jpg" src2="/images/home_hero7.jpg" />
+        <Section1
+          src1="/images/paul-green-gOHfFgwyDNM-unsplash.jpg"
+          src2="/images/home_hero7.jpg"
+        />
         <TrendingSection />
-        <Section1 src1="/images/home_hero6.jpg" src2="/images/home_hero8.jpg" />
+        <Section1
+          src1="/images/patrick-hendry-1ow9zrlldJU-unsplash.jpg"
+          src2="/images/home_hero8.jpg"
+        />
         <NewsLetter />
         <Footer />
       </div>
