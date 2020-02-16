@@ -38,7 +38,7 @@ class App extends React.Component {
         />
         <TrendingSection />
         <Section1
-          src1="/images/patrick-hendry-1ow9zrlldJU-unsplash.jpg"
+          src1="/images/dmitrii-vaccinium-9qsK2QHidmg-unsplash.jpg"
           src2="/images/home_hero8.jpg"
         />
         <NewsLetter />
