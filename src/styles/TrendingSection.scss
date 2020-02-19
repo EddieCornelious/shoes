@@ -4,15 +4,14 @@
 }
 
 .trending__item__top {
-  padding: 2rem 0;
-
+  padding: 4rem 0;
+  display: flex;
+  justify-content: center;
   img {
     width: 100%;
     height: auto;
+    max-width: 600px;
   }
-}
-
-.trending__item__bottom {
 }
 
 .trending__header {

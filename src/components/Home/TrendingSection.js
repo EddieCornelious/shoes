@@ -18,8 +18,6 @@ const TrendingItem = ({ classId }) => {
         <div className="trending__item__top">
           <img src={"images/" + url[classId]} />
         </div>
-
-        <div className="trending__item__bottom">&nbsp;</div>
       </div>
     </div>
   );
