@@ -5,13 +5,17 @@
 }
 
 .trending__item__top {
-  height: 75%;
-  background: pink;
+  height: 80%;
+  padding: 2rem 0;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .trending__item__bottom {
-  height: 25%;
-  background: green;
+  height: 20%;
 }
 
 .trending__header {
