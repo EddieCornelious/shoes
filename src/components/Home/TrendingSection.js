@@ -18,6 +18,20 @@ const TrendingItem = ({ classId }) => {
         <div className="trending__item__top">
           <img src={"images/" + url[classId]} />
         </div>
+        <div className="trending__item__bottom">
+          <div className="trending__overlay">
+            <a href="#" className="trending__cart">
+              ADD TO CART
+            </a>
+          </div>
+          <h3>Really Cool Bike</h3>
+          <p>$499</p>
+          <i className="fa fa-star" aria-hidden="true" />
+          <i className="fa fa-star" aria-hidden="true" />
+          <i className="fa fa-star" aria-hidden="true" />
+          <i className="fa fa-star" aria-hidden="true" />
+          <i className="fa fa-star" aria-hidden="true" />
+        </div>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ const LeftContentDefault = () => {
   return (
     <div className="left__content">
       <h3>the end of season sale is here.</h3>
-      <p>up to 50% off</p>
+      <p>Up to 50% off</p>
       <a href="#">shop bikes</a>
     </div>
   );
@@ -15,7 +15,7 @@ const RightContentDefault = () => {
   return (
     <div className="right__content">
       <h3>limited offers on boards</h3>
-      <p>up to 50% off</p>
+      <p>Up to 50% off</p>
       <a href="#">shop boards</a>
     </div>
   );
