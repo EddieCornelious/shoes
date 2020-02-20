@@ -9,8 +9,8 @@ const TrendingItem = ({ classId }) => {
     "Unknown-1.jpeg",
     "Unknown-4.jpeg",
     "Unknown-8.jpeg",
-    "ADYSB00019_MUL_FRT4_1800-2400_large.jpeg",
-    "Untitled-112_copy_copy_copy_large.jpeg"
+    "Unknown-18.jpeg",
+    "Unknown-19.jpeg"
   ];
   return (
     <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3 p-0">

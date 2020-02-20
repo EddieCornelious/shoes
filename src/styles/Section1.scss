@@ -17,26 +17,14 @@
   }
 }
 
-.left__content {
+.left__content,
+.right__content {
   position: absolute;
   font-size: 3rem;
   z-index: 29;
   bottom: 0;
   color: white;
   padding: 5rem;
-}
-
-.right__content {
-  position: absolute;
-  font-size: 3rem;
-  bottom: 0;
-  padding: 5rem;
-  color: black;
-
-  a {
-    background: black !important;
-    color: white !important;
-  }
 }
 
 .left__content,
