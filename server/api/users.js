@@ -26,7 +26,7 @@ function createToken(userName, email, id) {
 router.post("/subscribe", function(req, res, next) {
   //change the tls settings
 
-  fs.readFile(__dirname + "../subscribe.html", function(err, data) {
+  fs.readFile(__dirname + "/../email/subscribe.html", function(err, data) {
     if (err) next(err);
 
     var transporter = nodemailer.createTransport({
