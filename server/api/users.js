@@ -6,6 +6,8 @@ const { signupMiddleware, loginMiddleware } = require("../middleware/index.js");
 const validator = require("validator");
 const hashSalt = require("../helpers/HashSalt.js");
 const jwt = require("jsonwebtoken");
+const nodemailer = require("nodemailer");
+const fs = require("fs");
 
 function createToken(userName, email, id) {
   const user = {
@@ -20,6 +22,44 @@ function createToken(userName, email, id) {
     user
   };
 }
+
+router.post("/subscribe", function(req, res, next) {
+  //change the tls settings
+
+  fs.readFile(__dirname + "../subscribe.html", function(err, data) {
+    if (err) next(err);
+
+    var transporter = nodemailer.createTransport({
+      service: "gmail",
+      secure: true,
+      auth: {
+        user: process.env.EMAIL,
+        pass: process.env.EMAIL_PW
+      },
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
+
+    var mailOptions = {
+      from: process.env.EMAIL,
+      to: process.env.EMAIL,
+      subject: "Sending Email using Node.js",
+      text: "That was easy!",
+      html: data
+    };
+
+    transporter.sendMail(mailOptions, function(error, info) {
+      if (error) {
+        next(err);
+      } else {
+        res.status(200).json({ msg: "success" });
+      }
+    });
+  });
+
+  //res.sendFile(__dirname + "/subscribe.html");
+});
 
 router.post("/signup", signupMiddleware, function(req, res, next) {
   const userName = validator.escape(req.body.userName);
