@@ -40,13 +40,13 @@ app.use(function(req, res, next) {
 
 app.use("/api", require("./api/index.js"));
 
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "../build", "index.html"));
+});
+
 app.use(function(err, req, res, next) {
   console.log(err);
   res.status(500).json({ msg: "Internal Server Error" });
-});
-
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "../build", "index.html"));
 });
 
 app.listen(process.env.PORT || 8080);
