@@ -46,7 +46,7 @@ app.get("/", function(req, res) {
 
 app.use(function(err, req, res, next) {
   console.log(err);
-  res.status(500).json({ msg: "Internal Server Error" });
+  return res.status(500).json({ msg: "Internal Server Error" });
 });
 
 app.listen(process.env.PORT || 8080);

@@ -8,6 +8,8 @@ const hashSalt = require("../helpers/HashSalt.js");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const fs = require("fs");
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
 
 function createToken(userName, email, id) {
   const user = {
@@ -23,27 +25,40 @@ function createToken(userName, email, id) {
   };
 }
 
+const oauth2Client = new OAuth2(
+  process.env.GMAIL_CLIENT_ID, // ClientID
+  process.env.GMAIL_CLIENT_SECRET, // Client Secret
+  "https://developers.google.com/oauthplayground" // Redirect URL
+);
+
+oauth2Client.setCredentials({
+  refresh_token: process.env.GMAIL_REFRESH_TOKEN
+});
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    type: "OAuth2",
+    user: "bicyclestore12345@gmail.com",
+    clientId: process.env.GMAIL_CLIENT_ID,
+    clientSecret: process.env.GMAIL_CLIENT_SECRET,
+    refreshToken: process.env.GMAIL_REFRESH_TOKEN,
+    accessToken: oauth2Client.getAccessToken()
+  },
+  tls: {
+    rejectUnauthorized: false
+  }
+});
+
 router.post("/subscribe", function(req, res, next) {
-  //change the tls settings
-
   fs.readFile(__dirname + "/../email/subscribe.html", function(err, data) {
-    if (err) next(err);
+    if (err) {
+      return next(err);
+    }
 
-    var transporter = nodemailer.createTransport({
-      service: "gmail",
-      secure: true,
-      auth: {
-        user: process.env.EMAIL,
-        pass: process.env.EMAIL_PW
-      },
-      tls: {
-        rejectUnauthorized: false
-      }
-    });
-
-    var mailOptions = {
-      from: process.env.EMAIL,
-      to: process.env.EMAIL,
+    const mailOptions = {
+      from: process.env.GMAIL_FROM,
+      to: req.query.send_to,
       subject: "Sending Email using Node.js",
       text: "That was easy!",
       html: data
@@ -51,14 +66,12 @@ router.post("/subscribe", function(req, res, next) {
 
     transporter.sendMail(mailOptions, function(error, info) {
       if (error) {
-        next(err);
+        return next(error);
       } else {
-        res.status(200).json({ msg: "success" });
+        return res.status(200).json({ msg: "success" });
       }
     });
   });
-
-  //res.sendFile(__dirname + "/subscribe.html");
 });
 
 router.post("/signup", signupMiddleware, function(req, res, next) {
@@ -81,12 +94,14 @@ router.post("/signup", signupMiddleware, function(req, res, next) {
         Query.exec(
           "INSERT INTO users (username, email, pword, salt) VALUES ?",
           [values]
-        ).then(function(results, fields) {
-          return res.status(201).json({
-            payload: createToken(userName, email, results[0].insertId),
-            msg: "Account created successfully"
-          });
-        });
+        )
+          .then(function(results, fields) {
+            return res.status(201).json({
+              payload: createToken(userName, email, results[0].insertId),
+              msg: "Account created successfully"
+            });
+          })
+          .catch(next);
       });
     })
     .catch(next);
@@ -109,14 +124,17 @@ router.post("/login", loginMiddleware, function(req, res, next) {
       return hashSalt({ userName, password, type: 0, salt: storedSalt }).then(
         function(hashResult) {
           if (hashResult.hashSalt === storedPw) {
-            return res.status(200).json({
-              payload: createToken(
-                results[0].username,
-                results[0].email,
-                results[0].user_id
-              ),
-              msg: "Login success"
-            });
+            return res
+              .status(200)
+              .json({
+                payload: createToken(
+                  results[0].username,
+                  results[0].email,
+                  results[0].user_id
+                ),
+                msg: "Login success"
+              })
+              .catch(next);
           } else {
             return res
               .status(401)
