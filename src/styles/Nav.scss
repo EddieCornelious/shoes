@@ -1,0 +1,96 @@
+.navbar__top {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 3rem;
+  position: fixed;
+  min-width: 100%;
+  z-index: 9999;
+  top: 0;
+  background: white;
+  .navbar__top__icon {
+    svg {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+  .navbar__top__user__options {
+    display: flex;
+    align-items: center;
+
+    i {
+      font-size: 2rem;
+      padding: 0 1rem;
+    }
+  }
+
+  .navbar__top__options {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+
+    ul {
+      margin-bottom: 0;
+    }
+    ul li {
+      display: inline-block;
+      margin: 0 2.5rem;
+      a:hover .nav__hover__content {
+        display: block;
+      }
+      a {
+        &:after {
+          display: block;
+          content: "";
+          border-bottom: solid 3px black;
+          transform: scaleX(0);
+          transition: transform 250ms ease-in-out;
+        }
+
+        &:hover:after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+}
+
+.navbar__bottom {
+  padding-top: 6.1rem;
+}
+
+.hide {
+  opacity: 0;
+  display: none;
+}
+
+.show {
+  display: flex;
+  opacity: 1;
+}
+
+.nav__hover__content {
+  position: fixed;
+  background: white;
+  min-height: 25vh;
+  min-width: 100%;
+  z-index: 9998;
+  align-content: space-around;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 10rem 0;
+  border: 1px solid #eee;
+}
+
+.nav__hover__content__wrap {
+  display: inline-block;
+  padding: 2rem 5rem 0 5rem;
+}
+
+.nav__button {
+  padding: 1rem 2rem;
+  border: none;
+  text-transform: capitalize;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 0 5px;
+}
