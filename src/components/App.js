@@ -10,8 +10,8 @@ import axios from "axios";
 import API_ROOT from "./config.js";
 //TODO: extract mount logic to redux
 class App extends React.Component {
-  componentDidMount() {
-    axios({
+  /*componentDidMount() {
+   axios({
       method: "post",
       url: API_ROOT + "/users/login",
       data: { userName: "ed", password: "12345678" },
@@ -27,7 +27,8 @@ class App extends React.Component {
         // handle error
         console.log(error);
       });
-  }
+  }*/
+  //TODO: import react router and use
   render() {
     return (
       <React.Fragment>
