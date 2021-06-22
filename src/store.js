@@ -1,14 +1,15 @@
 import { applyMiddleware, createStore, combineReducers } from "redux";
-import { createLogger } from "redux-logger";
-import authReducer from "/reducers/auth";
 
-const logger = createLogger({
-  // ...options
-});
+import authReducer from "./reducers/auth";
+import thunk from "redux-thunk";
 
 const store = createStore(
   combineReducers({ authenticated: authReducer }),
-  applyMiddleware(logger)
+  applyMiddleware(
+    thunk,
+    +window.__REDUX_DEVTOOLS_EXTENSION__ &&
+      window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 );
 
 export default store;

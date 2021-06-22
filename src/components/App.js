@@ -8,9 +8,7 @@ import Section1 from "./Home/Section1.js";
 import TrendingSection from "./Home/TrendingSection.js";
 import axios from "axios";
 import API_ROOT from "./config.js";
-import { Provider } from "react-redux";
-import store from "../store";
-//TODO: Add redux logger
+//TODO: extract mount logic to redux
 class App extends React.Component {
   componentDidMount() {
     axios({
@@ -23,6 +21,7 @@ class App extends React.Component {
     })
       .then(function (response) {
         console.log(response);
+        localStorage.setItem("token", response.data.token);
       })
       .catch(function (error) {
         // handle error
@@ -32,21 +31,19 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Provider store={store}>
-          <Nav />
-          <HomeCarousel />
-          <Section1
-            src1="/images/paul-green-gOHfFgwyDNM-unsplash.jpg"
-            src2="/images/home_hero7.jpg"
-          />
-          <TrendingSection />
-          <Section1
-            src1="/images/dmitrii-vaccinium-9qsK2QHidmg-unsplash.jpg"
-            src2="/images/home_hero8.jpg"
-          />
-          <NewsLetter />
-          <Footer />
-        </Provider>
+        <Nav />
+        <HomeCarousel />
+        <Section1
+          src1="/images/paul-green-gOHfFgwyDNM-unsplash.jpg"
+          src2="/images/home_hero7.jpg"
+        />
+        <TrendingSection />
+        <Section1
+          src1="/images/dmitrii-vaccinium-9qsK2QHidmg-unsplash.jpg"
+          src2="/images/home_hero8.jpg"
+        />
+        <NewsLetter />
+        <Footer />
       </React.Fragment>
     );
   }

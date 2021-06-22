@@ -1,6 +1,8 @@
-export const AUTHENTICATE = "AUTHENTICATE";
-export const AUTHENTICATE_SUCCESS = "AUTHENTICATE_SUCCESS";
-export const AUTHENTICATE_FAILURE = "AUTHENTICATE_FAILURE";
+export const LOGIN = "LOGIN";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAILURE = "LOGIN_FAILURE";
 
-//TODO: finish action creator
-export function authenticate() {}
+//TODO: finish action creator thunk
+export function authenticate() {
+  return function (dispatch, getState) {};
+}
